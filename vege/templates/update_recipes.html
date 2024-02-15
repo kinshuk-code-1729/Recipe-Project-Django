@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block start %}
+
+<div class="container mt-5">
+    <form class="col-6 mx-auto p-3 shadow-lg card" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="text-center"><i>Update Your Recipe</i></h2>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><b>Recipe Name</b></label>
+          <input type="text" class="form-control" name="recipe_name" value="{{recipe.recipe_name}}" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><b>Recipe Description</b></label>
+          <textarea class="form-control" name="recipe_desc" required>{{recipe.recipe_desc}}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><b>Recipe Image</b></label>
+          <input type="file" class="form-control" name="recipe_image">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-success mx-2" onclick="showmsg()"><strong>Update</strong></button>
+        <a href="/recipes/" class="btn btn-secondary mx-5"><b>Go Back to Recipes</b></a>
+        </div>
+      </form>
+
+</div>
+<script>
+    function showmsg(){
+        alert("Recipe Updated Successfully !!!!");
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block start%}
+    <h3>Welcome to DJANGO Home Page</h3>
+    <h5>This is a DJANGO template return by server</h5>
+        <h5>Backend Data from views.py file</h5>
+    <br>
+    <table class="table-info table-bordered border-warning" width="60%">
+        <thead>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Available</th>
+        </thead>
+        <tbody>
+            {% for p in people %}
+            
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{p.Name}}</td>
+                <td>{{p.Age}}</td>
+                <td  {% if p.Age > 21 %} style="background-color:gold" {% else %} style="background-color:crimson" {% endif %}>
+                    {% if p.Age > 21 %}
+                    ✅
+                    {% else %}
+                    ❎
+                    {% endif %}
+                </td>
+            </tr>
+           
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <p>
+        {% if "redmi" in brands %}
+         Redmi Available
+        {% elif "hp" in brands %}
+        hp Available
+        {% else %}
+        Not Available
+        {% endif %}
+    </p>
+    <br>
+    <h5><a href="/contact/">Contact Page</a>
+    &nbsp;&nbsp;
+    <a href="/about/">About Page</a></h5>
+    <br>
+    <h3>
+    <a href="/recipes/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add your Recipes here</a>
+    </h3>
+    <script>
+        alert("Welcome to our Django Home Page !!!");
+    </script>
+{% endblock %}
