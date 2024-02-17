@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block start %}
-
+<h1 class="text-center"> Recipe Update Page </h1>
 <div class="container mt-5">
     <form class="col-6 mx-auto p-3 shadow-lg card" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h2 class="text-center"><i>Update Your Recipe</i></h2>
         <hr>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"><b>Recipe Name</b></label>
+          <label class="form-label"><b>Recipe Name</b></label>
           <input type="text" class="form-control" name="recipe_name" value="{{recipe.recipe_name}}" required>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"><b>Recipe Description</b></label>
+          <label class="form-label"><b>Recipe Description</b></label>
           <textarea class="form-control" name="recipe_desc" required>{{recipe.recipe_desc}}</textarea>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"><b>Recipe Image</b></label>
+          <label class="form-label"><b>Recipe Image</b></label>
           <input type="file" class="form-control" name="recipe_image">
         </div>
         <div>
