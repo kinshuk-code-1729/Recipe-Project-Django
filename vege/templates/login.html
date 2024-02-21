@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block start %}
+
+<style>
+    .required-field::before {
+        content: "*";
+        color: red;
+        float: right;
+    }
+</style>
+<div class="container mt-5">
+    <form class="col-6 mx-auto p-3 shadow-lg card" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="text-center">Log In</h2>
+        <hr>
+            <div class="mb-3">
+              <label class="form-label required-field"><b>Username</b></label>
+              <input required type="text" class="form-control" placeholder="Enter your Username/Email">
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label required-field"><b>Password</b></label>
+              <input required type="password" class="form-control" placeholder="Enter your Password">
+            </div>
+
+            <button type="submit" class="btn btn-outline-success"><b>Log In</b></button>
+            <div class="mt-2">
+                <hr class="text-muted"/>
+                <h5 class="text-muted text-center">OR</h5>
+                <hr class="text-muted"/>
+            </div>
+            <div class="text-center"><b>Didn't have an account ? <a href="/register/"> Register</b> </a></div>
+      </form>
+
+
+</div>
+{% endblock %}

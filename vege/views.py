@@ -22,7 +22,7 @@ def recipes(request):
     if request.GET.get('search'):
         querySet = querySet.filter(recipe_name__icontains = request.GET.get('search'))
         
-    context = {'recipes' : querySet}
+    context = {'recipes' : querySet , 'page' : 'Recipes Home'}
         
     return render(request,"recipes.html",context)
 
@@ -50,5 +50,11 @@ def update_recipe(request, id):
         querySet.save()
         return redirect('/recipes/')
             
-    context = {"recipe" : querySet}
+    context = {"recipe" : querySet, 'page' : 'Update Recipe'}
     return render(request,"update_recipes.html",context)
+
+def login_page(request):
+    return render(request, 'login.html' , context = {'page' : 'Login Page'})
+
+def register(request):
+    return render(request, 'register.html', context = {'page' : 'Sign Up Page'})
