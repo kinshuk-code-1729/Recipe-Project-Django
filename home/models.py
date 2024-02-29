@@ -8,6 +8,7 @@ class Student(models.Model):
     age = models.IntegerField()
     email = models.EmailField(null=True,blank=True)
     address = models.TextField(null=True,blank=True)
+    branch = models.TextField(default = "CSE")
     
 class Car(models.Model):
     car_name = models.CharField(max_length = 100)
